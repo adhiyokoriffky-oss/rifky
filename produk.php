@@ -93,7 +93,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="login.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -233,7 +233,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>InvAdmin</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->

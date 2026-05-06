@@ -1,3 +1,31 @@
+<?php
+include "koneksi.php";
+
+$auto = mysqli_query($conn, "select max(kd_kat) as max_code from categories");
+$hasil = mysqli_fetch_array($auto);
+$code = $hasil['max_code'];
+if ($code == NULL) {
+    $urutan = 0;
+} else {
+    $urutan = (int) substr($code, 1, 3);
+}
+$urutan++;
+$huruf = "K";
+$kd_kat = $huruf . sprintf("%03s", $urutan);
+
+if (isset($_POST['simpan'])) {
+    $nm_kat = $_POST['nm_kat'];
+
+    $query = mysqli_query($conn, "INSERT INTO categories(kd_kat, category_name) VALUES ('$kd_kat', '$nm_kat')");
+    if ($query) {
+        echo "<script>alert('Data berhasil ditambahkan!')</script>";
+        header("refresh:0, kategori_produk.php");
+    } else {
+        echo "<script>alert('Data gagal ditambahkan!')</script>";
+        header("refresh:0, kategori_produk.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +33,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Laporan - InvAdmin</title>
+  <title>Kategoori Produk - InvAdmin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -46,6 +74,7 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown">
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -92,7 +121,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="login.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -118,7 +147,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="kategori_produk.php">
+        <a class="nav-link " href="kategori_produk.php">
           <i class="bi bi-tags"></i>
           <span>Kategori Produk</span>
         </a>
@@ -132,7 +161,7 @@
       </li><!-- End Data Produk Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="laporan.php">
+        <a class="nav-link collapsed" href="laporan.php">
           <i class="bi bi-bar-chart-line"></i>
           <span>Laporan</span>
         </a>
@@ -151,39 +180,39 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Laporan</h1>
+      <h1>Kategori Produk</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-          <li class="breadcrumb-item active">Laporan</li>
+          <li class="breadcrumb-item"><a href="kategori_produk.php">Kategori Produk</a></li>
+          <li class="breadcrumb-item active">Tambah</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
     <section class="section">
-      <div class="row">
         <div class="col-lg-6">
-
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              <h5 class="card-title">Tambah Kategori Produk</h5>
+              <!-- Vertical Form -->
+              <form class="row g-3" method="post">
+                <div class="col-12">
+                  <label for="kd_kat" class="form-label">Kode Kategori</label>
+                  <input type="text" class="form-control" id="kd_kat" name="kd_kat" value="<?php echo $kd_kat;?>" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="nm_kat" class="form-label">Nama Kategori</label>
+                  <input type="text" class="form-control" id="nm_kat" name="nm_kat" required>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-warning"><a href="kategori_produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                  <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
+                </div>
+              </form><!-- Vertical Form -->
             </div>
           </div>
-
         </div>
-
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
 
   </main><!-- End #main -->

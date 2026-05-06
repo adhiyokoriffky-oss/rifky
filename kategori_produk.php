@@ -159,63 +159,48 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body mt-3">
+              <a href="t_kat.php" class="btn btn-primary">Tambah Data</a>
+            </div>
+          </div>
+        </div>
+      </div>
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
-              <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
-
+            <div class="card-body mt-3">
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Kode Kategori</th>
+                    <th scope="col">Kategori Produk</th>
+                    <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                  <?php
+                  include "koneksi.php";
+                  $no = 1;
+                  $sql = mysqli_query($conn, "SELECT * FROM categories");
+                  while ($data = mysqli_fetch_array($sql)) {
+                  ?>
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $data['kd_kat']; ?></td>
+                      <td><?php echo $data['category_name']; ?></td>
+                      <td>
+                        <a href="e_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit</a>
+                        <a href="h_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">Hapus</a>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -232,7 +217,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>InvAdmin</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
