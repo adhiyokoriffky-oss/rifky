@@ -92,7 +92,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="login.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -112,7 +112,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -125,7 +125,7 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="produk.php">
+        <a class="nav-link " href="produk.php">
           <i class="bi bi-box-seam"></i>
           <span>Data Produk</span>
         </a>
@@ -155,6 +155,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="produk.php">Produk</a></li>
           <li class="breadcrumb-item active">Stock</li>
         </ol>
       </nav>
