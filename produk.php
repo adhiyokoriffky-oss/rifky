@@ -182,6 +182,7 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Kode Produk</th>
+                    <th scope="col">Nama Produk</th>
                     <th scope="col">Kategori</th>
                     <th scope="col">stok</th>
                     <th scope="col">Harga</th>
