@@ -190,7 +190,34 @@
                   </tr>
                 </thead>
                 <tbody>
-                 
+                 <?php
+                include "koneksi.php";
+                $no = 1;
+                $sql = mysqli_query($conn, "
+                    SELECT p.*, c.category_name
+                    FROM products p
+                    LEFT JOIN categories c
+                    ON p.category_id = c.id
+                ");
+
+                while ($data = mysqli_fetch_array($sql)) {
+                ?>
+                <tr>
+                  <td><?php echo $no++; ?></td>
+                  <td><?php echo $data['product_code']; ?></td>
+                  <td><?php echo $data['product_name']; ?></td>
+                  <td><?php echo $data['category_name']; ?></td>
+                  <td><?php echo $data['stock']; ?></td>
+                  <td>Rp <?php echo number_format($data['price'],0,',','.'); ?></td>
+                  <td>
+                    <img src="produk_img/<?php echo $data['gambar']; ?>" width="50" class="rounded">
+                  </td>
+                  <td>
+                    <a href="edit_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="h_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin?')">Hapus</a>
+                  </td>
+                </tr>
+                <?php } ?>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
