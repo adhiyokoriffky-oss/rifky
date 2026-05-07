@@ -254,7 +254,7 @@ if (isset($_POST['simpan'])) {
                                 </div>
                                 <div class="col-12">
                                     <label for="gambar" class="form-label">Gambar Produk</label>
-                                    <input type="file" class="form-control" id="gambar" name="gambar" required>
+                                    <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
                                 </div>
                                 <div class="text-center">
                                 <button type="button" class="btn btn-warning"><a href="kategori_produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
