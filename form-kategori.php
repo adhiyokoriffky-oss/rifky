@@ -206,7 +206,7 @@
             &copy; Copyright <strong><span>Nama Sistem</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="">Nama Kalian</a>
+            Designed by <a href="#">RifkyAdhiyoko</a>
         </div>
     </footer><!-- End Footer -->
 
