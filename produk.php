@@ -214,7 +214,7 @@
                     <img src="produk_img/<?php echo $data['gambar']; ?>" width="50" class="rounded">
                   </td>
                   <td>
-                    <a href="edit_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="e_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                     <a href="h_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin?')">Hapus</a>
                   </td>
                 </tr>
