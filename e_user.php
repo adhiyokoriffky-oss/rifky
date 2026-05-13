@@ -2,7 +2,7 @@
 include 'koneksi.php';
 $id = $_GET['id'];
 $data = mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'");
-$hasil = mysqli_fetch_array($data); 
+$user = mysqli_fetch_array($data); 
 
 if (isset($_POST['update'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -208,11 +208,11 @@ if (isset($_POST['update'])) {
                             <form class="row g-3" method="post">
                                 <div class="col-12">
                                     <label for="name" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $hasil['name'] ?>" required>
+                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $user['name'] ?>" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $hasil['email'] ?>" required>
+                                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['email'] ?>" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password</label>
@@ -222,15 +222,15 @@ if (isset($_POST['update'])) {
                                 <div class="col-12">
                                     <label for="role" class="form-label">Role</label>
                                     <select class="form-control" id="role" name="role" required>
-                                        <option value="user" <?php if ($hasil['role'] == 'user') echo 'selected'; ?>>User</option>
-                                        <option value="admin" <?php if ($hasil['role'] == 'admin') echo 'selected'; ?>>Admin</option>
+                                        <option value="user" <?php if ($user['role'] == 'user') echo 'selected'; ?>>User</option>
+                                        <option value="admin" <?php if ($user['role'] == 'admin') echo 'selected'; ?>>Admin</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
                                     <label for="is_active" class="form-label">Status</label>
                                     <select class="form-control" id="is_active" name="is_active">
-                                        <option value="1" <?php if ($hasil['is_active'] == 1) echo 'selected'; ?>>Aktif</option>
-                                        <option value="0" <?php if ($hasil['is_active'] == 0) echo 'selected'; ?>>Tidak Aktif</option>
+                                        <option value="1" <?php if ($user['is_active'] == 1) echo 'selected'; ?>>Aktif</option>
+                                        <option value="0" <?php if ($user['is_active'] == 0) echo 'selected'; ?>>Tidak Aktif</option>
                                     </select>
                                 </div>
                                 <div class="text-center">
