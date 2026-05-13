@@ -21,7 +21,7 @@ if (isset($_POST['simpan'])) {
         echo "<script>alert('Password wajib diisi!'); window.location='t_user.php';</script>";
         exit;
     }
-    
+
     //insert data
     $query = mysqli_query($conn, "INSERT INTO users (name, email, password, role, is_active) VALUES ('$name', '$email', '$password_hash', '$role', '$is_active')");
     if ($query) {   
@@ -222,7 +222,7 @@ if (isset($_POST['simpan'])) {
                                     <label for="role" class="form-label">Role</label>
                                     <select class="form-control" id="role" name="role" required>
                                         <option value="">-- Pilih Role --</option>
-                                        <option value="user">User</option>
+                                        <option value="staff">Staff</option>
                                         <option value="admin">Admin</option>
                                     </select>
                                 </div>

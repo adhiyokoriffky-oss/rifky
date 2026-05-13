@@ -201,13 +201,13 @@
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $data['name']; ?></td>
                   <td><?php echo $data['email']; ?></td>
-                  <td><?php echo $data['role']; ?></td>
+                  <td><?php echo ucfirst($data['role']); ?></td>
                   <td>
                     <?php 
                     if ($data['is_active'] == 1) {
                       echo '<span class="badge bg-success">Aktif</span>';
                     } else {
-                      echo '<span class="badge bg-secondary">Tidak Aktif</span>';
+                      echo '<span class="badge bg-danger">Nonaktif</span>';
                     }
                     ?>
                   </td>

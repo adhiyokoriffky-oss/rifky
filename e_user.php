@@ -222,7 +222,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-12">
                                     <label for="role" class="form-label">Role</label>
                                     <select class="form-control" id="role" name="role" required>
-                                        <option value="user" <?php if ($user['role'] == 'user') echo 'selected'; ?>>User</option>
+                                        <option value="Staff" <?php if ($user['role'] == 'Staff') echo 'selected'; ?>>Staff</option>
                                         <option value="admin" <?php if ($user['role'] == 'admin') echo 'selected'; ?>>Admin</option>
                                     </select>
                                 </div>
