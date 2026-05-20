@@ -212,7 +212,7 @@ function waktu_lalu($datetime)
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-box"></i>
+                      <i class="bi bi-box-seam"></i>
                     </div>
                     <div class="ps-3">
                       <h6><?= $data_produk['total_produk']; ?></h6>
@@ -403,15 +403,14 @@ function waktu_lalu($datetime)
                   while ($row = mysqli_fetch_assoc($q_menipis)) :
                   ?>
                     <tr>
-                      <th><?= $no++; ?></th>
                       <td><?= $row['product_name']; ?></td>
                       <td><?= $row['stock']; ?></td>
                       <td><?php if ($row['stock'] == 0): ?>
                           <span class="badge bg-danger">Habis</span>
                         <?php elseif ($row['stock'] <= ($row['min_stock'] / 2)): ?>
-                          <span class="badge bg-warning">Hampir Habis</span>
+                          <span class="badge bg-danger">Hampir Habis</span>
                         <?php else: ?>
-                          <span class="badge bg-success">Menipis</span>
+                          <span class="badge bg-warning">Menipis</span>
                         <?php endif; ?>
                       </td>
                     </tr>
