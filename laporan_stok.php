@@ -117,9 +117,9 @@ $html = '
 
         // Status stok
         if ($row['stock'] > $row['min_stock']) {
-            $status = '<span class="stok-Minim">Stok Minim</span>';
+            $status = '<span class="stok-minim">Stok Minim</span>';
         } else {
-            $status = '<span class="stok-Minim">Stok Minim</span>';
+            $status = '<span class="stok-aman">Aman</span>';
         }
 
         // path gambar
