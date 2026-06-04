@@ -116,7 +116,7 @@ $html = '
         $harga = "Rp " . number_format($row['price'], 0, ',', '.');
 
         // Status stok
-        if ($row['stock'] > $row['min_stock']) {
+        if ($row['stock'] <= $row['min_stock']) {
             $status = '<span class="stok-minim">Stok Minim</span>';
         } else {
             $status = '<span class="stok-aman">Aman</span>';

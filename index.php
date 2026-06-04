@@ -390,7 +390,7 @@ function waktu_lalu($datetime)
             <div class="card-body pb-0">
               <h5 class="card-title">Stok Menipis <span>| Warning</span></h5>
 
-              <table class="table table-borderless datatable">
+              <table class="table table-borderless">
                 <thead>
                   <tr>
                     <th scope="col">Produk</th>
